@@ -2,6 +2,7 @@ import { DataSource } from 'typeorm';
 import logger from 'jet-logger';
 
 import config from '@shared/config';
+import Image from '@entities/Image';
 
 const dataSource = new DataSource({
     type: 'postgres',
