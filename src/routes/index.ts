@@ -1,12 +1,12 @@
 import { Router, Request, Response } from 'express';
 import dataSource from "@services/dataSource";
 import Image from "@entities/Image";
+import { distance } from "@shared/image-util.cjs";
 
 import validate from "@shared/middleware/validate";
 import getImageSchema from "@schemas/getImage";
 import listImagesSchema from "@schemas/listImages";
 import findImagesSchema from "@schemas/findImages";
-import {distance} from "@shared/image-util";
 
 const router: Router = Router();
 
