@@ -6,7 +6,9 @@ import config from '@shared/config';
 const dataSource = new DataSource({
     type: 'postgres',
     ...config.database,
-    entities: [],
+    entities: [
+        Image,
+    ],
     synchronize: true,
 });
 
