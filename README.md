@@ -7,6 +7,6 @@ This is a web application that allows users to click on a random image from a sl
 This is the back end version. The Front end: https://github.com/mgsium/image-matcher-frontend
 
 ## Credits
-The back end was Written by [@maartin0](https://github.com/maartin0), [@icen1](https://github.com/icen1) and [@AyoDev](https://github.com/AyoDev)
+The back end was written by [@maartin0](https://github.com/maartin0), [@icen1](https://github.com/icen1) and [@AyoDev](https://github.com/AyoDev)
 
 The front end was written by [@mgsium](https://github.com/mgsium/)
