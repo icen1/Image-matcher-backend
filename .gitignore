@@ -5,3 +5,4 @@ local*
 .idea
 .env
 **/**/.DS_STORE
+src/scrapper/config.py
