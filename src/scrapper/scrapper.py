@@ -11,10 +11,10 @@ def getImage(id):
     return image
 
 
-# Pretty print
+# Pretty print for debugging
 pp = pprint.PrettyPrinter(indent=4)
 
-# Search for "gogh" in department 11 (European Paintings)
+# Get all images in department 11 (European Paintings)
 images = requests.get(
     "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11").json()['objectIDs']
 
@@ -23,13 +23,13 @@ images = requests.get(
 output = open('output.csv', 'w', newline='')
 csvWrite = csv.writer(output)
 
-# Look for primary image in the first 500 images in images
+# Get all images properties we need and write them to output.csv
 objectsInJson = json.loads(json.dumps(images))
 for i in range(len(objectsInJson)):
     image = getImage(objectsInJson[i])
     # If there is an object add all the paramters we need to a csv file
     if (len(image) > 1) and image['primaryImageSmall'] != "":
-        csvWrite.writerow([image['title'], image['objectDate'],
+        csvWrite.writerow([image['title'], image['objectDate'], image['primaryImage'],
                           image['primaryImageSmall'], image['artistDisplayName']])
 
 
