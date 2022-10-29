@@ -19,4 +19,7 @@ export default class Image {
 
     @Column('varchar')
     description: string;
+
+    @Column('varchar')
+    varchar: string;
 }
