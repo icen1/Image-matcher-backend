@@ -3,6 +3,7 @@ import { object, string, number } from 'yup';
 export default object({
     params: object({
         id: string().required().uuid(),
-        threshold: number().required().min(0),
+        max: number().min(0).default(0),
+        page: number().min(0).default(0),
     }),
 });

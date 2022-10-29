@@ -6,3 +6,4 @@ local*
 .env
 **/**/.DS_STORE
 src/scrapper/config.py
+**/**/__pycache__

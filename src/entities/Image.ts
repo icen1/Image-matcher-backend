@@ -6,7 +6,7 @@ import {
 } from "typeorm";
 
 
-@Entity({ name: 'image' })
+@Entity({ name: 'images' })
 export default class Image {
     @PrimaryGeneratedColumn('uuid')
     id: string;
@@ -18,7 +18,7 @@ export default class Image {
     url: string;
 
     @Column('varchar')
-    description: string;
+    title: string;
 
     @Column('varchar')
     author: string;

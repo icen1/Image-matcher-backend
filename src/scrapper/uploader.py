@@ -45,7 +45,7 @@ def run():
             print(i)
             i += 1
 
-
+"""
 try:
     run()
 except KeyboardInterrupt:
@@ -58,3 +58,10 @@ if i > 1000:
     cur.close()
     conn.close()
     print("Saved")
+"""
+
+insert('a', 'b', 'c', 'd', 'e')
+
+conn.commit()
+cur.close()
+conn.close()
