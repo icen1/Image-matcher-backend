@@ -18,6 +18,9 @@ export default class Image {
     url: string;
 
     @Column('varchar')
+    urlLarge: string;
+
+    @Column('varchar')
     title: string;
 
     @Column('varchar')
