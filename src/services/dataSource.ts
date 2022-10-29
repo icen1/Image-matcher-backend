@@ -5,15 +5,12 @@ import config from '@shared/config';
 
 const dataSource = new DataSource({
     type: 'postgres',
-    ...config.database,
-    entities: [
-        Image,
-    ],
+    url: config.db,
+    entities: [ Image ],
     synchronize: true,
 });
 
-const msg = `Connected to database at: \
-${config.database.host ?? 'localhost'}:${config.database.port}`;
+const msg = `Connected to db`;
 dataSource.initialize().then(() => logger.info(msg));
 
 export default dataSource;
