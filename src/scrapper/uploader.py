@@ -9,19 +9,6 @@ from config import url, cert
 
 conn = psycopg2.connect(url, sslrootcert=cert)
 cur = conn.cursor()
-"""
-from urllib.parse import urlparse
-
-result = urlparse(url)
-connection = psycopg2.connect(
-    database=result.path[1:],
-    user=result.username,
-    password=result.password,
-    host=result.hostname,
-    port=result.port
-)
-"""
-
 
 def hash_img(url):
     response = requests.get(url)
@@ -30,7 +17,7 @@ def hash_img(url):
 
 
 def insert(*args):
-    cur.execute("INSERT INTO images (created, url, title, author, hash) VALUES (%s, %s, %s, %s, %s)", args)
+    cur.execute("INSERT INTO images (title, created, url, url_large, author, hash) VALUES (%s, %s, %s, %s, %s, %s)", args)
 
 
 i = 0
@@ -41,11 +28,11 @@ def run():
     with open('output.csv') as file:
         for line in csv.reader(file):
             h = hash_img(line[2])
-            insert(line[1], line[2], line[0], line[3], str(h))
+            insert(*line, str(h))
             print(i)
             i += 1
 
-"""
+
 try:
     run()
 except KeyboardInterrupt:
@@ -58,10 +45,3 @@ if i > 1000:
     cur.close()
     conn.close()
     print("Saved")
-"""
-
-insert('a', 'b', 'c', 'd', 'e')
-
-conn.commit()
-cur.close()
-conn.close()

@@ -11,14 +11,14 @@ export default class Image {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @CreateDateColumn()
-    created: Date;
+    @Column('varchar')
+    created: string;
 
     @Column('varchar')
     url: string;
 
     @Column('varchar')
-    urlLarge: string;
+    url_large: string;
 
     @Column('varchar')
     title: string;
