@@ -27,8 +27,8 @@ def run():
     global i
     with open('output.csv') as file:
         for line in csv.reader(file):
-            h = hash_img(line[2])
-            insert(*line, str(h))
+            h = hash_img(line[3])
+            insert(line[0], line[1], line[3], line[2], line[4], str(h))
             print(i)
             i += 1
 

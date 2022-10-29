@@ -7,6 +7,7 @@ import validate from "@shared/middleware/validate";
 import getImageSchema from "@schemas/getImage";
 import listImagesSchema from "@schemas/listImages";
 import findImagesSchema from "@schemas/findImages";
+import likeImageSchema from '@schemas/likeImage';
 
 const router: Router = Router();
 
@@ -30,12 +31,12 @@ router.get('/list/:max?/:page?',
 
 router.get('/random',
     async (req: Request, res: Response) => {
-        res.send(
-            await dataSource.manager.createQueryBuilder(Image, 'image')
-                .select()
-                .orderBy('RANDOM()')
-                .getOne()
-        );
+        const result: Image | null = await dataSource.manager.createQueryBuilder(Image, 'image')
+            .select()
+            .orderBy('RANDOM()')
+            .getOne();
+        if (result) res.send(result);
+        else res.sendStatus(404);
     }
 );
 
@@ -75,6 +76,23 @@ router.get(
         if (params.max && result.length > params.max) result.length = params.max;
         res.send(result.slice(params.page * params.max, params.page * params.max + params.max));
     }
+);
+
+router.post('/like',
+    validate(likeImageSchema),
+    async (req: Request, res: Response) => {
+        const image: Image | null = await dataSource.manager.findOne(Image, { where: { id: likeImageSchema.cast(req).body.id } });
+        if (!image) {
+            res.sendStatus(404);
+            return;
+        }
+
+        if (image.likes) image.likes += 1;
+        else image.likes = 1;
+
+        await dataSource.manager.save(image);
+        res.status(200).send(image.likes);
+    },
 );
 
 export default router;

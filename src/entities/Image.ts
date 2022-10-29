@@ -1,7 +1,6 @@
 import {
     Column,
-    CreateDateColumn,
-    Entity,
+    Entity, ManyToOne,
     PrimaryGeneratedColumn
 } from "typeorm";
 
@@ -28,4 +27,7 @@ export default class Image {
 
     @Column('varchar')
     hash: string;
+
+    @Column('integer', { nullable: true })
+    likes: number;
 }
