@@ -80,9 +80,6 @@
       ],
       "@schemas/*": [
         "src/schemas/*"
-      ],
-      "@types/*": [
-        "src/types/*"
       ]
     },
     "useUnknownInCatchVariables": false

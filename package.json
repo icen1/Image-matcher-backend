@@ -27,8 +27,7 @@
     "@shared": "dist/shared",
     "@routes": "dist/routes",
     "@services": "dist/services",
-    "@schemas": "dist/schemas",
-    "@types": "dist/types"
+    "@schemas": "dist/schemas"
   },
   "dependencies": {
     "command-line-args": "^5.2.1",
