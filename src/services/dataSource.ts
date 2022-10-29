@@ -2,16 +2,16 @@ import { DataSource } from 'typeorm';
 import logger from 'jet-logger';
 
 import config from '@shared/config';
+import Image from '@entities/Image';
 
 const dataSource = new DataSource({
     type: 'postgres',
-    ...config.database,
-    entities: [],
+    url: config.db,
+    entities: [ Image ],
     synchronize: true,
 });
 
-const msg = `Connected to database at: \
-${config.database.host ?? 'localhost'}:${config.database.port}`;
+const msg = `Connected to db`;
 dataSource.initialize().then(() => logger.info(msg));
 
 export default dataSource;

@@ -5,9 +5,3 @@ export enum NodeEnvironments {
   STAGING = 'staging',
   PRODUCTION = 'production'
 }
-
-export enum TokenType {
-  INTAKE='intake',
-  ADMIN='admin',
-  USER='user',
-}

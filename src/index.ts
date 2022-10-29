@@ -1,4 +1,5 @@
 import './pre-start';
+import '@services/dataSource';
 
 import logger from 'jet-logger';
 import config from '@shared/config';
