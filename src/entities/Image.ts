@@ -21,5 +21,8 @@ export default class Image {
     description: string;
 
     @Column('varchar')
-    varchar: string;
+    author: string;
+
+    @Column('varchar')
+    hash: string;
 }
