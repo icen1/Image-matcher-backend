@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 import dataSource from "@services/dataSource";
 import Image from "@entities/Image";
 import { distance } from "@shared/imageUtil";
@@ -9,6 +9,12 @@ import listImagesSchema from "@schemas/listImages";
 import findImagesSchema from "@schemas/findImages";
 
 const router: Router = Router();
+
+// Enable CORS
+router.use((req: Request, res: Response, next: NextFunction) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 router.get('/list/:max?/:page?',
     validate(listImagesSchema),
