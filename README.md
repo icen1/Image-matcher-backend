@@ -17,13 +17,14 @@ Art is matched using perceptual hashes, a concept that can be used to find simil
 
 ## API Routes
 
-| GET  | `/list/:max?/:page?`             |      | Image[]            |
-|------|----------------------------------|------|--------------------|
-| GET  | `/random/:weighted?`             |      | Image \| 404       |
-| GET  | `/group/:weighted?/:max?/:page?` |      | Image[] \| 404     |
-| GET  | `/image/:id`                     |      | Image \| 404       |
-| GET  | `/similar/:id/:max?/:page?/`     |      | Image[] \| 404     |
-| POST | `/like`                          | `id` | Total likes \| 404 |
+| Method | Path                             | Body Params | Response           |
+|--------|----------------------------------|-------------|--------------------|
+| GET    | `/random/:weighted?`             |             | Image \| 404       |
+| GET    | `/list/:max?/:page?`             |             | Image[]            |
+| GET    | `/group/:weighted?/:max?/:page?` |             | Image[] \| 404     |
+| GET    | `/image/:id`                     |             | Image \| 404       |
+| GET    | `/similar/:id/:max?/:page?/`     |             | Image[] \| 404     |
+| POST   | `/like`                          | `id`        | Total likes \| 404 |
 
 ## See also
 [mgsium/image-matcher-frontend](https://github.com/mgsium/image-matcher-frontend)
