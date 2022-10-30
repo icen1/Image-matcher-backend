@@ -1,12 +1,36 @@
-# image-matcher-backend
-A Hack the Midlands project.
-## Brief description
-This is a web application that allows users to click on a random image from a slideshow and then be shown a list of similar images. The images are stored in a database and the similarity is determined by PHash. A painting can receive likes and the more likes it receives the more it is shown to users.
+# image-matcher-backend (aka Pictura)
+A Hack the Midlands project / web app designed to encourage more engagement with art by finding similar pieces exclusive of the painter or other technical details.
+Art is matched using perceptual hashes, a concept that can be used to find similarities between images.
 
+## Technologies
+ - Typescript
+ - React (Frontend)
+ - Express (Backend)
+ - Postgresql (DB)
+ - CockroachDB (DB Hosting)
+ - Microsoft Azure (Backend Hosting)
+ - Netlify (Frontend Hosting)
+ - Twilio (Feed Notifications) (?)
 
-This is the back end version. The Front end: https://github.com/mgsium/image-matcher-frontend
+## Screenshots
+(TODO)
+
+## API Routes
+
+| GET  | `/list/:max?/:page?`             |      | Image[]            |
+|------|----------------------------------|------|--------------------|
+| GET  | `/random/:weighted?`             |      | Image \| 404       |
+| GET  | `/group/:weighted?/:max?/:page?` |      | Image[] \| 404     |
+| GET  | `/image/:id`                     |      | Image \| 404       |
+| GET  | `/similar/:id/:max?/:page?/`     |      | Image[] \| 404     |
+| POST | `/like`                          | `id` | Total likes \| 404 |
+
+## See also
+[mgsium/image-matcher-frontend](https://github.com/mgsium/image-matcher-frontend)
+
+[pHash.org](https://www.phash.org/)
+[perceptual hashing in more depth](https://www.hackerfactor.com/blog/?/archives/432-Looks-Like-It.html)
 
 ## Credits
-The back end was written by [@maartin0](https://github.com/maartin0), [@icen1](https://github.com/icen1) and [@AyoDev](https://github.com/AyoDev)
-
-The front end was written by [@mgsium](https://github.com/mgsium/)
+The backend was written by [@maartin0](https://github.com/maartin0), [@icen1](https://github.com/icen1) and [@AyoDev](https://github.com/AyoDev)
+The frontend was written by [@mgsium](https://github.com/mgsium/)
