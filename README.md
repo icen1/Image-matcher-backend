@@ -10,7 +10,6 @@ Art is matched using perceptual hashes, a concept that can be used to find simil
  - CockroachDB (DB Hosting)
  - Microsoft Azure (Backend Hosting)
  - Netlify (Frontend Hosting)
- - Twilio (Feed Notifications) (?)
 
 ## Screenshots
 (TODO)
