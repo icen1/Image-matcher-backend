@@ -25,7 +25,7 @@ i = 0
 
 def run():
     global i
-    with open('output.csv') as file:
+    with open('archive/artwork_data.csv') as file:
         for line in csv.reader(file):
             h = hash_img(line[3])
             insert(line[0], line[1], line[3], line[2], line[4], str(h))

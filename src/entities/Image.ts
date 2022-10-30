@@ -11,7 +11,7 @@ export default class Image {
     id: string;
 
     @Column('varchar', { nullable: true })
-    created: string;
+    created?: string;
 
     @Column('varchar')
     url: string;
@@ -25,9 +25,12 @@ export default class Image {
     @Column('varchar')
     author: string;
 
+    @Column('varchar', { nullable: true })
+    description?: string;
+
     @Column('varchar')
     hash: string;
 
-    @Column('integer', { default: 0 })
-    likes: number;
+    @Column('integer', { default: 0, nullable: true })
+    likes?: number;
 }

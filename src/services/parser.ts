@@ -32,7 +32,7 @@ export async function random(weighted?: boolean): Promise<Image | null> {
         .orderBy('RANDOM()')
         .getOne();
     const images: Image[] = await list();
-    const weights: number[] = images.map((image: Image) =>  Math.floor(Math.log(image.likes)) + 1);
+    const weights: number[] = images.map((image: Image) =>  image.likes && image.likes > 0 ? Math.floor(Math.log(image.likes)) + 1 : 1);
     return weightedRandom(images, weights);
 }
 
