@@ -25,12 +25,21 @@ i = 0
 
 def run():
     global i
-    with open('archive/artwork_data.csv') as file:
-        for line in csv.reader(file):
-            h = hash_img(line[3])
-            insert(line[0], line[1], line[3], line[2], line[4], str(h))
-            print(i)
+    with open('artwork_data.csv', encoding="mbcs") as file:
+        a = iter(csv.reader(file))
+        next(a)
+        for line in a:
+            try:
+                small = line[18].replace("www.tate", "media.tate")
+                large = small.replace("_8.jpg", "_10.jpg")
+                h = hash_img(small)
+                insert(line[5], line[9], small, large, line[2], str(h))
+            except:
+                continue
+            if i > 5000:
+                break
             i += 1
+            print(i)
 
 
 try:

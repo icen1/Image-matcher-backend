@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+body div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img.display {
+    height: 30vh;
+    cursor: pointer;
+}
+
+img.full {
+    height: 50vh;
+    width: auto;
+}
+
+.overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 100);
+    width: 100vw;
+    height: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+img {
+    animation-name: zoom;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+
+@keyframes zoom {
+    0% {
+        height: 0;
+        width: 0;
+    }
+}
