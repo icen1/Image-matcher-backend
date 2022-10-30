@@ -29,7 +29,7 @@ Art is matched using perceptual hashes, a concept that can be used to find simil
 ## See also
 [mgsium/image-matcher-frontend](https://github.com/mgsium/image-matcher-frontend)
 
-[pHash.org](https://www.phash.org/)
+[pHash.org](https://www.phash.org/) <br> 
 [perceptual hashing in more depth](https://www.hackerfactor.com/blog/?/archives/432-Looks-Like-It.html)
 
 ## Credits
