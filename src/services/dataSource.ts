@@ -8,7 +8,7 @@ const dataSource = new DataSource({
     type: 'postgres',
     url: config.db,
     entities: [ Image ],
-    // synchronize: true,
+    synchronize: true,
 });
 
 const msg = `Connected to db`;

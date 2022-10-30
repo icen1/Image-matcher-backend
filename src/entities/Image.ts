@@ -1,6 +1,6 @@
 import {
     Column,
-    Entity, ManyToOne,
+    Entity,
     PrimaryGeneratedColumn
 } from "typeorm";
 
@@ -10,7 +10,7 @@ export default class Image {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column('varchar')
+    @Column('varchar', { nullable: true })
     created: string;
 
     @Column('varchar')
