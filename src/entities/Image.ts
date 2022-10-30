@@ -28,6 +28,6 @@ export default class Image {
     @Column('varchar')
     hash: string;
 
-    @Column('integer', { nullable: true })
+    @Column('integer', { default: 0 })
     likes: number;
 }
