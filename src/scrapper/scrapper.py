@@ -18,6 +18,9 @@ pp = pprint.PrettyPrinter(indent=4)
 images = requests.get(
     "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11").json()['objectIDs']
 
+# Get all images in department 21 (Modern Art)
+images += requests.get(
+    "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=21").json()['objectIDs']
 
 # Make output.csv file and open it
 output = open('output.csv', 'w', newline='')
@@ -27,8 +30,9 @@ csvWrite = csv.writer(output)
 objectsInJson = json.loads(json.dumps(images))
 for i in range(len(objectsInJson)):
     image = getImage(objectsInJson[i])
+    print(image)
     # If there is an object add all the paramters we need to a csv file
-    if (len(image) > 1) and image['primaryImageSmall'] != "":
+    if (len(image) > 1) and image['primaryImageSmall'] != "" and image['classification'] == "Paintings":
         csvWrite.writerow([image['title'], image['objectDate'], image['primaryImage'],
                           image['primaryImageSmall'], image['artistDisplayName']])
 
