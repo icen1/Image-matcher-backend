@@ -1,6 +1,6 @@
 import Image from '@entities/Image';
 import dataSource from '@services/dataSource';
-import { distance } from '@shared/imageUtil';
+import distance from '@shared/imageUtil';
 
 export async function list(): Promise<Image[]> {
     return dataSource.manager.find(Image);
