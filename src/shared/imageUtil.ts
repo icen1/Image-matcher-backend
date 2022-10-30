@@ -1,6 +1,6 @@
 import type Image from '@entities/Image';
 
-export function distance(image0: Image, image1: Image): number {
+export default function distance(image0: Image, image1: Image): number {
     const a = image0.hash;
     const b = image1.hash;
     let count = 0;
@@ -10,4 +10,4 @@ export function distance(image0: Image, image1: Image): number {
         }
     }
     return count;
-};
+}

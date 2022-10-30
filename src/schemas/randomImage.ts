@@ -1,4 +1,4 @@
-import { object, boolean } from "yup";
+import { object, boolean } from 'yup';
 
 export default object({
     params: object({
