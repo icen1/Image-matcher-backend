@@ -1,33 +1,35 @@
 import {
     Column,
     Entity,
-    PrimaryGeneratedColumn
-} from "typeorm";
-
+    PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({ name: 'images' })
 export default class Image {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+        id: string;
 
     @Column('varchar', { nullable: true })
-    created: string;
+        created?: string;
 
     @Column('varchar')
-    url: string;
+        url: string;
 
     @Column('varchar')
-    url_large: string;
+        url_large: string;
 
     @Column('varchar')
-    title: string;
+        title: string;
 
     @Column('varchar')
-    author: string;
+        author: string;
+
+    @Column('varchar', { nullable: true })
+        description?: string;
 
     @Column('varchar')
-    hash: string;
+        hash: string;
 
-    @Column('integer', { default: 0 })
-    likes: number;
+    @Column('integer', { default: 0, nullable: true })
+        likes?: number;
 }

@@ -1,4 +1,4 @@
-import {object, boolean, number} from "yup";
+import { object, boolean, number } from 'yup';
 
 export default object({
     params: object({

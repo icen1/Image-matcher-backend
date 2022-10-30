@@ -1,12 +1,12 @@
-import Image from "@entities/Image";
-import dataSource from "@services/dataSource";
-import { distance } from "@shared/imageUtil";
+import Image from '@entities/Image';
+import dataSource from '@services/dataSource';
+import distance from '@shared/imageUtil';
 
 export async function list(): Promise<Image[]> {
     return dataSource.manager.find(Image);
 }
 
-export async function trim(data: Image[], max?: number, page?: number) {
+export function trim(data: Image[], max?: number, page?: number) {
     return max ? data.slice(max * (page ?? 0), max * (page ?? 0) + max) : data;
 }
 
@@ -27,12 +27,18 @@ export function weightedRandom<T>(items: T[], weights: number[]): T {
 }
 
 export async function random(weighted?: boolean): Promise<Image | null> {
-    if (!weighted) return dataSource.manager.createQueryBuilder(Image, 'image')
-        .select()
-        .orderBy('RANDOM()')
-        .getOne();
+    if (!weighted) {
+        return dataSource.manager.createQueryBuilder(Image, 'image')
+            .select()
+            .orderBy('RANDOM()')
+            .getOne();
+    }
     const images: Image[] = await list();
-    const weights: number[] = images.map((image: Image) =>  Math.floor(Math.log(image.likes)) + 1);
+    const weights: number[] = images.map(
+        (image: Image) => (image.likes && image.likes > 0
+            ? Math.floor(Math.log(image.likes)) + 1
+            : 1),
+    );
     return weightedRandom(images, weights);
 }
 
@@ -45,7 +51,5 @@ export async function get(id: string): Promise<Image | null> {
 
 export async function getSimilar(image: Image): Promise<Image[]> {
     return (await dataSource.manager.find(Image))
-        .sort((a: Image, b: Image) =>
-            distance(a, image) - distance(b, image)
-        );
+        .sort((a: Image, b: Image) => distance(a, image) - distance(b, image));
 }
