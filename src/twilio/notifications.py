@@ -8,8 +8,8 @@ from twilio.rest import Client
 def send_message(message, receiver):
     # Find your Account SID and Auth Token at twilio.com/console
     # and set the environment variables. See http://twil.io/secure
-    account_sid = '***REMOVED***'
-    auth_token = '***REMOVED***'
+    account_sid = '{Insert account sid}'
+    auth_token = '{Inser auth token}'
     client = Client(account_sid, auth_token)
 
     message = client.messages \
